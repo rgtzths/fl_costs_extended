@@ -156,8 +156,8 @@ def train_LSTM(input, output, look_back, verbose=0):
 
     y_train = np.loadtxt(input/"y_train.csv", delimiter=",").reshape((-1,1))
 
-    X_cv = np.loadtxt(input/"x_cv_under.csv", delimiter=",")
-    y_cv = np.loadtxt(input/"y_cv_under.csv", delimiter=",").reshape((-1,1))
+    X_cv = np.loadtxt(input/"x_cv.csv", delimiter=",")
+    y_cv = np.loadtxt(input/"y_cv.csv", delimiter=",").reshape((-1,1))
 
     X_train = np.reshape(X_train, (X_train.shape[0], look_back, -1))
     X_cv = np.reshape(X_cv, (X_cv.shape[0], look_back, -1))
