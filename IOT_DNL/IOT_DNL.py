@@ -14,8 +14,8 @@ class IOT_DNL(Util):
 
 
     def data_processing(self):
-        dataset = f"{self.dataset_name}/data/data.csv"
-        output = f"{self.dataset_name}/data"
+        dataset = f"{self.name}/data/data.csv"
+        output = f"{self.name}/data"
         Path(output).mkdir(parents=True, exist_ok=True)
 
         data = pd.read_csv(dataset)
@@ -73,9 +73,19 @@ class IOT_DNL(Util):
 
 
     def create_model(self):
+        # Optimizer: Adam
+        # Learning rate: 0.000005
         return tf.keras.models.Sequential([
-            tf.keras.layers.Dense(128, activation='relu', input_shape=(11,)),
-            tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.Dense(128, activation='relu'),
+            # flatten layer
+            tf.keras.layers.Flatten(input_shape=(11,)),
+            # hidden layers
+            tf.keras.layers.Dense(64, activation='relu'),
+            tf.keras.layers.Dropout(0.1),
+            tf.keras.layers.Dense(64, activation='relu'),
+            tf.keras.layers.Dropout(0.1),
+            tf.keras.layers.Dense(64, activation='relu'),
+            tf.keras.layers.Dropout(0.1),
+            tf.keras.layers.Dense(64, activation='relu'),
+            # output layer
             tf.keras.layers.Dense(6, activation='softmax')
         ])

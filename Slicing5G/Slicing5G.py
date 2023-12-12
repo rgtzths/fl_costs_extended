@@ -14,8 +14,8 @@ class Slicing5G(Util):
 
 
     def data_processing(self):
-        dataset = f"{self.dataset_name}/data/raw_data.xlsx"
-        output = f"{self.dataset_name}/data"
+        dataset = f"{self.name}/data/raw_data.xlsx"
+        output = f"{self.name}/data"
         # create the output folder if it does not exist
         Path(output).mkdir(parents=True, exist_ok=True)
 
@@ -79,9 +79,15 @@ class Slicing5G(Util):
 
 
     def create_model(self):
+        # Optimizer: Adam
+        # Learning rate: 0.00001
         return tf.keras.models.Sequential([
-            tf.keras.layers.Dense(128, activation="relu", input_shape=(8,)),
-            tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.Dense(128, activation='relu'),
+            # flatten layer
+            tf.keras.layers.Flatten(input_shape=(8,)),
+            # hidden layers
+            tf.keras.layers.Dense(32, activation='relu'),
+            tf.keras.layers.Dense(32, activation='relu'),
+            tf.keras.layers.Dropout(0.1),
+            # output layer
             tf.keras.layers.Dense(3, activation="softmax")
         ])

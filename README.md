@@ -1,33 +1,48 @@
-# zenoh_fl
+# FL - Costs - Extended
 
-## Installing
+## Structure
 
-To run the scenarios locally please install the requirements
+This repository has the following structure:
+```
+├── FL/
+├── data_division.py
+├── federated_learning.py
+├── model_eval.py
+├── single_training.py
+└── xai.py
+```
 
- `pip install -r requirements.txt`
+Other folders contain data and results for specific datasets, which have the following structure:
+```
+├── data/
+├── fl/
+├── models/
+└── [DATASET].py
+```
 
-## Running
+For the main structure:
+- FL/ contains the implementation of the federated learning algorithms, which are used in federated_learning.py. 
+- The other files are used to run experiments, use --help to see the options.
 
-To run locally you only need the following commands
+For the dataset structure:
+- data/ contains the data files, including the train, test, validation and specific workers' data.
+- fl/ contains the results of the federated learning algorithms, including the models and the training logs, for each experiment.
+- models/ contains the models to be used in XAI algorithms.
+- data_processing.py is used to create data for training, validation and testing from the raw data.
+- model.py has the implementation of the model to be used in the experiments.
 
-`mpirun -np 4 python mpi_decentralized_assync.py -d dataset/one_hot_encoding/`
 
-`mpirun -np 4 python mpi_decentralized_sync.py -d dataset/one_hot_encoding/`
+## Running the experiments
 
-`mpirun -np 4 python mpi_centralized_sync.py -d dataset/one_hot_encoding/`
-
-`mpirun -np 4 python mpi_centralized_assync.py -d dataset/one_hot_encoding/`
-
-If you want to run the single_host setting you can run
-
-`python single_host.py`
 
 ## Results
+
 
 
 ## Authors
 
 * **Rafael Teixeira** - [rgtzths](https://github.com/rgtzths)
+* **Leonardo Almeida** - [leoalmPT](https://github.com/leoalmPT/)
 
 ## License
 

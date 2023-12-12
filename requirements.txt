@@ -1,5 +1,13 @@
-tensorflow
 pandas
-scikit-learn
+numpy
 matplotlib
-notebook
+scikit-learn
+tensorflow
+mpi4py
+
+plotly
+nbformat
+dalex
+kaleido
+
+openpyxl
