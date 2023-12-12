@@ -5,11 +5,15 @@
 This repository has the following structure:
 ```
 ├── FL/
+├── [DATASET]/
+├── config.py
 ├── data_division.py
 ├── federated_learning.py
 ├── model_eval.py
 ├── single_training.py
-└── xai.py
+├── plot_history.py
+├── get_messages.py
+└── Util.py
 ```
 
 Other folders contain data and results for specific datasets, which have the following structure:
@@ -22,18 +26,33 @@ Other folders contain data and results for specific datasets, which have the fol
 
 For the main structure:
 - FL/ contains the implementation of the federated learning algorithms, which are used in federated_learning.py. 
+- config.py defines the datasets and xai methods to be used in the experiments.
+- Util.py contains a class which all datasets must inherit from.
 - The other files are used to run experiments, use --help to see the options.
 
 For the dataset structure:
 - data/ contains the data files, including the train, test, validation and specific workers' data.
 - fl/ contains the results of the federated learning algorithms, including the models and the training logs, for each experiment.
 - models/ contains the models to be used in XAI algorithms.
-- data_processing.py is used to create data for training, validation and testing from the raw data.
-- model.py has the implementation of the model to be used in the experiments.
+- [DATASET].py contains the implementation of the dataset, including the data loading and the data division.
 
+## Setup
+
+First, create a virtual environment and install the requirements:
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Download the datasets and put them in the data/ folder of each dataset (links found in the data/README.md files of each dataset).
+
+Finally, run the data_processing.py and data_division.py files for each dataset, to process the data and divide it into train, test, validation and workers' data.
 
 ## Running the experiments
 
+- Run single_training.py for each dataset
+- Run federated_learning.py for the experiments you want to run
 
 ## Results
 
