@@ -58,7 +58,7 @@ def plot_model_history(input_folder, file_name):
             plt.title("Evolution of the "+key+" of the model")
             plt.legend()
 
-            fig.savefig(output /(key+".pdf"), dpi=300.0, bbox_inches='tight', format="pdf", orientation="landscape")
+            fig.savefig(output /(key+".png"), dpi=300.0, bbox_inches='tight', format="png", orientation="landscape")
 
     plt.close('all')
 
@@ -150,7 +150,7 @@ def get_average_times_single(folder_fl, folder_single, n_batches):
     ax = df.plot(x='Training approach', kind='bar', stacked=True, figsize=(12, 8))
     plt.xticks(rotation=0)
     ax.get_yaxis().set_ticklabels([]) 
-    ax.get_figure().savefig(output /("times_comparison.pdf"), dpi=300.0, bbox_inches='tight', format="pdf", orientation="landscape")
+    ax.get_figure().savefig(output /("times_comparison.png"), dpi=300.0, bbox_inches='tight', format="png", orientation="landscape")
 
     plt.close('all')
 
