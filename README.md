@@ -20,20 +20,18 @@ Other folders contain data and results for specific datasets, which have the fol
 ```
 ├── data/
 ├── fl/
-├── models/
 └── [DATASET].py
 ```
 
 For the main structure:
 - FL/ contains the implementation of the federated learning algorithms, which are used in federated_learning.py. 
-- config.py defines the datasets and xai methods to be used in the experiments.
+- config.py defines the datasets to be used in the experiments.
 - Util.py contains a class which all datasets must inherit from.
 - The other files are used to run experiments, use --help to see the options.
 
 For the dataset structure:
 - data/ contains the data files, including the train, test, validation and specific workers' data.
 - fl/ contains the results of the federated learning algorithms, including the models and the training logs, for each experiment.
-- models/ contains the models to be used in XAI algorithms.
 - [DATASET].py contains the implementation of the dataset, including the data loading and the data division.
 
 ## Setup
